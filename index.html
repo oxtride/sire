@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASAÍ Profile</title>
+    <!-- Подключаем милый округлый шрифт от Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS СТИЛИ --- */
+        :root {
+            --bg-color: #fffbf8; /* Очень светлый кремовый фон */
+            --text-main: #4a4a4a; /* Темно-серый текст */
+            --text-muted: #8c8c8c; /* Светло-серый текст */
+            --accent-brown: #8d7b72; /* Коричневый для заголовка */
+            --label-color: #b0a99f; /* Цвет меток (byf, dfi...) */
+            --border-color: #d8c8c0; /* Цвет рамки нижнего блока */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            /*display: flex;*/
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px; /* Ширина как на картинке */
+            padding: 20px;
+            opacity: 0; /* Скрыто для анимации появления */
+            
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        /* Показываем контент после загрузки */
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- ВЕРХНЯЯ ЧАСТЬ --- */
+        .header-section {
+            display: flex;
+            align-items: flex-start; /* Выравнивание по верху */         transform: translateY(20px);
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .cat-image {
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .cat-image img {
+            width: 100%;
+            height: auto;
+            /* Фильтр, чтобы сделать обычную картинку похожей на скетч (сепия) */
+            filter: sepia(0.3) contrast(0.9);
+            mix-blend-mode: multiply;
+        }
+
+        .bio-content {
+            flex: 1.5;
+            padding-top: 10px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--accent-brown);
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .short-bio {
+            margin-bottom: 10px;
+        }
+
+        .links {
+            margin-bottom: 20px;
+        }
+
+        .links a {
+            color: var(--text-muted);
+            text-decoration: underline;
+            margin-right: 8px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: var(--accent-brown);
+        }
+
+        .likes-block p {
+            margin-bottom: 8px;
+        }
+
+        /* Стили для жирных подписей (siii, no no, byf...) */
+        .label {
+            font-weight: 800;
+            color: var(--label-color);
+            margin-right: 5px;
+        }
+
+        /* --- НИЖНЯЯ ЧАСТЬ (РАМКА) --- */
+        .info-box {
+            border: 3px solid var(--border-color);
+            border-radius: 20px;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        /* Центральная картинка собачки */
+        .col.center-img {
+            text-align: center;
+            flex: 0.6; /* Узкая колонка для картинки */
+        }
+
+        .col.center-img img {
+            width: 80px;
+            opacity: 0.7;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- ПОДВАЛ --- */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- АДАПТИВ (ДЛЯ МОБИЛЬНЫХ) --- */
+        @media (max-width: 600px) {
+            .header-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .info-box {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .col.center-img {
+                order: 3; /* Картинку вниз на телефоне */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <!-- Верхняя секция -->
+        <header class="header-section">
+            <div class="cat-image">
+                <!-- Замени src на ссылку на свою картинку кота-скетча -->
+                <!-- Я использую плейсхолдер -->
+                <img src="cat.png" alt="Sketch cat">
+            </div>
+            
+            <div class="bio-content">
+                <h1>dropcult</h1>
+                <div class="short-bio">
+                    maksim, 17, russian
+                </div>
+                <nav class="links">
+                    <a href="https://t.me/aetts">telegram</a>
+                    <a href="https://tiktok.com/@dropthiscult">tiktok</a>
+                    <a href="https://tripplemode.itch.io">itch.io</a>
+                    <a href="#">website</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Нижняя секция в рамке -->
+        <section class="info-box">
+            <!-- Левая колонка -->
+            <div class="col left">
+                <div class="info-item">
+
+                   <div class="likes-block">
+                    <p>
+                        <span class="label">ilove</span> 
+                        < web dev, game dev, gaming, coding
+                    </p>
+                    <p>
+                        <span class="label">iplay</span> 
+                        < cs2, roblox, cod
+                    </p>
+                    <p>
+                        <span class="label">skills</span> 
+                        < html, css, js, react, typescript, vite, figma, tailwind, bootstrap
+                    </p>
+                </div>
+            </div>
+
+            <!-- Центр (картинка) -->
+            <div class="col center-img">
+                <!-- Замени src на ссылку на скетч собачки -->
+                <img src="cat2.png" alt="Doodle">
+            </div>
+
+        <footer>
+            © 2026
+        </footer>
+
+    </div>
+
+    <script>
+        // JS: Простая анимация появления при загрузке
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById('mainContainer');
+            
+            // Небольшая задержка перед появлением
+            setTimeout(() => {
+                container.classList.add('visible');
+            }, 100);
+
+            // Бонус: Милый эффект при клике на заголовок
+            const title = document.querySelector('h1');
+            title.addEventListener('click', () => {
+                title.style.color = '#d4a373'; // Меняет цвет на секунду
+                setTimeout(() => {
+                    title.style.color = 'var(--accent-brown)';
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
